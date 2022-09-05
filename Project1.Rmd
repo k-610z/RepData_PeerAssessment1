@@ -1,8 +1,8 @@
 ---
-title: "Reproducible Research: Peer Assessment 1"
-output: 
-  html_document:
-    keep_md: true
+title: "Reproducible_Research-Week2_Project1.Rmd"
+author: "Kareena Mulchandani"
+date: "06/09/2022"
+output: html_document
 ---
 
 ```{r setup, include=FALSE}
@@ -147,6 +147,5 @@ averages2 <- aggregate(steps ~ interval + day, data=filled.activity, mean)
 ggplot(averages2, aes(interval, steps)) + geom_line() + facet_grid(day ~ .) +
     xlab("5-minute interval") + ylab("Number of steps")
 ```
-
 
 

@@ -1,14 +1,9 @@
 ---
-title: "Reproducible Research: Peer Assessment 1"
-output: 
-  html_document:
-    keep_md: true
+title: "Reproducible_Research-Week2_Project1"
+author: "Kareena Mulchandani"
+date: "05/09/2022"
+output: html_document
 ---
-
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
-```
-
 # Reproducible Research: Peer Assessment 1
 
 ## Loading and preprocessing the data
@@ -76,7 +71,7 @@ Several dates have missing data as "NA". Lets replace them with the correspondin
 ```{r how_many_missing}
 # Filling Missing values and summarising the new dataset
 
-missing_count<- activity %>% 
+activity %>% 
         summarise(missing_count=sum(is.na(steps)))
 missing_count #prints the number of NA values in steps
 
@@ -123,7 +118,7 @@ median(dailytotal2$tot_dailystps2)
 First, let's find the day of the week for each measurement in the dataset.We shall use the dataset with
 the filled-in missing values (filled.activity).
 ```{r}
-#converting date to class date
+converting date to class date
 filled.activity$date<-as.Date(filled.activity$date, format="%Y-%m-%d")
 
 
@@ -147,6 +142,5 @@ averages2 <- aggregate(steps ~ interval + day, data=filled.activity, mean)
 ggplot(averages2, aes(interval, steps)) + geom_line() + facet_grid(day ~ .) +
     xlab("5-minute interval") + ylab("Number of steps")
 ```
-
 
 
